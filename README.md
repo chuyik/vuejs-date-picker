@@ -31,7 +31,7 @@ Webpack configuration:
 Usage in .vue:
 ```html
 <template>
-  <date-picker></date-picker>
+  <date-picker :type="'datetime'" @change="dateChanged" :value="someDateVariable"></date-picker>
 </template>
 
 <script>
