@@ -146,7 +146,7 @@
         this.picker.open()
       },
       close() {
-        this.picker.close()
+        this.picker && this.picker.close()
       },
 
       onBlur() {
@@ -203,7 +203,7 @@
     destroyed() {
       this.$emit('input-destroyed')
       this.close()
-      this.pickerWrapper.$destroy()
+      this.pickerWrapper && this.pickerWrapper.$destroy()
     },
     directives: {
       focus,
