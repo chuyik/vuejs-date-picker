@@ -9,7 +9,7 @@ Datepicker component for Vue.js, Same as input(type=date) or input(type=datetime
 # Getting Started
 
 Webpack configuration:
-```json
+```js
 {
   module: {
     loaders: [{ 
@@ -26,6 +26,7 @@ Webpack configuration:
     }]
   }
 }
+```
 
 Usage in .vue:
 ```html
