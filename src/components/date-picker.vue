@@ -147,11 +147,7 @@ import Week from './week.vue'
 import Day from './day.vue'
 import Time from './time.vue'
 import { MONTH_NAMES } from './constant'
-
-const dateFormat = function (value, format = 'YYYY-MM-DD') {
-  if (!value) return ''
-  return value.format(format)
-}
+import {getFormatStr, dateFormat} from './util'
 
 export default {
   props: {
@@ -186,19 +182,7 @@ export default {
   },
   computed: {
     format() {
-      if (this.type === 'date') {
-        if (this.formatDate) {
-          return this.formatDate
-        } else {
-          return 'YYYY-MM-DD'
-        }
-      } else if (this.type === 'datetime') {
-        if (this.formatDatetime) {
-          return this.formatDatetime
-        } else {
-          return 'YYYY-MM-DD HH:mm'
-        }
-      }
+      return getFormatStr(this.type, this)
     },
     monthName() {
       return MONTH_NAMES[this.monthNum - 1]

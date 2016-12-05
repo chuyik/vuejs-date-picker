@@ -35,8 +35,11 @@
 <script>
   import Vue from 'vue'
   import $ from 'jquery'
+  const moment = require('moment')
+
   import { focus, blur } from './directive'
   import picker from './date-picker.vue'
+  import {getFormatStr} from './util'
 
   export default {
     props: {
@@ -52,12 +55,16 @@
       utc: Boolean,
     },
     data() {
+      let dateForClose = ''
+      if (this.value) {
+        dateForClose = moment(this.value).format(getFormatStr(this.type, this))
+      }
       return {
         pickerWrapper: null,
         isCreated: false,
         isFocus: false,
         //比较难处理的一个问题,因为input在渲染时picker是还没有的,所以读取this.picker就会报错,所以就会进行this.isCreated判断,这样input渲染时是没问题了,但在picker关闭后,由于this.isCreated值会被再次取反为false,reactive机制,就会引起date的变化,返回空,我的解决办法就是用dateForClose在关闭时临时存储下这个值
-        dateForClose: '',
+        dateForClose,
       }
     },
     computed: {
@@ -75,11 +82,7 @@
       date() {
         if (!this.isCreated) {
           if (!this.dateForClose) {
-            if (this.value) {
-              return this.value
-            } else {
-              return ''
-            }
+            return this.value || ''
           } else {
             return ''
           }
