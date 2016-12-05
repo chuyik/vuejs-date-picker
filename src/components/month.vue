@@ -1,4 +1,4 @@
-<style scoped lang="sass">
+<style scoped lang="scss">
 @import "../style/main";
 .month-wrap {
   vertical-align: top;

@@ -1,4 +1,4 @@
-<style scoped lang="sass">
+<style scoped lang="scss">
 @import "../style/main";
 .day-list {
   overflow: hidden;

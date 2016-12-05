@@ -1,4 +1,4 @@
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   @import "../style/main";
   .date {
     width: 180px;

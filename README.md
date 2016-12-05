@@ -6,21 +6,42 @@ Datepicker component for Vue.js, Same as input(type=date) or input(type=datetime
 
 ![Screenshot](./screen-shot.png)
 
-# Strong point
-
-The datePicker can be automatically append to body element, So it have no staking level problem and you just write like this :
-```
-<input type="date" is="date" />
-```
-
 # Getting Started
 
-```
-<input type="date" is="date" />
-```
-OR
-```
-<input type="datetime" is="datetime" />
+Webpack configuration:
+```json
+{
+  module: {
+    loaders: [{ 
+      test: /\.js$/, 
+      include: [path.resolve('./client'), path.resolve(NODE_MODULES_PATH, 'vuejs-date-picker')],
+      loader: 'babel', 
+      query: {
+        cacheDirectory: true
+      }
+    }, { 
+      test: /\.vue$/, 
+      loader: 'vue', 
+      exclude: /node_modules\/(?!(vuejs-date-picker)\/).*/
+    }]
+  }
+}
+
+Usage in .vue:
+```html
+<template>
+  <date-picker></date-picker>
+</template>
+
+<script>
+import DatePicker from 'vuejs-date-picker'
+
+export default {
+  components: {
+    DatePicker
+  }
+}
+</script>
 ```
 
 # Installation

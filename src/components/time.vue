@@ -1,4 +1,4 @@
-<style scoped lang="sass">
+<style scoped lang="scss">
 @import "../style/main";
 .time-wrap {
   border-top: 1px solid #dee5ec;
